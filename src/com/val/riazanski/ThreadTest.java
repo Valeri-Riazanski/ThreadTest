@@ -1,8 +1,5 @@
 package com.val.riazanski;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static java.lang.Math.random;
 
 public class ThreadTest {
@@ -22,9 +19,6 @@ public class ThreadTest {
     public static void main(String[] args) {
         Book book;
         book = new Book(3);
-        //book.metachange(2, "W*W*W*W*W*W");
-        //System.out.println(book.getList().toString());
-
         Runnable t1 = () -> {
             try {
                 for (int i = 0; i < 5; i++) {
@@ -32,7 +26,6 @@ public class ThreadTest {
                     book.metaChange(0, randomString());
                     System.out.println(ConsoleColors.CYAN + "1 thread after" + book.getList().toString() + ConsoleColors.RESET);
                     Thread.sleep((int) (10 * Math.random()));
-
                 }
             } catch (InterruptedException e) {
                 {
@@ -46,7 +39,6 @@ public class ThreadTest {
                     book.metaChange(1, randomString());
                     System.out.println(ConsoleColors.BLUE + "2 thread after" + book.getList().toString() + ConsoleColors.RESET);
                     Thread.sleep((int) (10 * Math.random()));
-
                 }
             } catch (InterruptedException e) {
                 {
@@ -57,6 +49,4 @@ public class ThreadTest {
         new Thread(t1).start();
         new Thread(t2).start();
     }
-
-
 }
