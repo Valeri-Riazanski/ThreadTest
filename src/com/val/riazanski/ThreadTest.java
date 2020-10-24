@@ -1,5 +1,7 @@
 package com.val.riazanski;
 
+import java.util.concurrent.Callable;
+
 import static java.lang.Math.random;
 
 public class ThreadTest {
@@ -20,11 +22,12 @@ public class ThreadTest {
         Book book;
         book = new Book(3);
         Runnable t1 = () -> {
+            String threadName = Thread.currentThread().getName();
             try {
                 for (int i = 0; i < 5; i++) {
-                    System.out.println(ConsoleColors.GREEN + "1 thread before" + book.getList().toString() + ConsoleColors.RESET);
+                    System.out.println(ConsoleColors.GREEN + threadName + book.getList().toString() + ConsoleColors.RESET);
                     book.metaChange(0, randomString());
-                    System.out.println(ConsoleColors.CYAN + "1 thread after" + book.getList().toString() + ConsoleColors.RESET);
+                    System.out.println(ConsoleColors.CYAN + threadName + book.getList().toString() + ConsoleColors.RESET);
                     Thread.sleep((int) (10 * Math.random()));
                 }
             } catch (InterruptedException e) {
@@ -33,11 +36,12 @@ public class ThreadTest {
             }
         };
         Runnable t2 = () -> {
+            String threadName = Thread.currentThread().getName();
             try {
                 for (int i = 0; i < 5; i++) {
-                    System.out.println(ConsoleColors.PURPLE + "2 thread before" + book.getList().toString() + ConsoleColors.RESET);
+                    System.out.println(ConsoleColors.PURPLE + threadName + book.getList().toString() + ConsoleColors.RESET);
                     book.metaChange(1, randomString());
-                    System.out.println(ConsoleColors.BLUE + "2 thread after" + book.getList().toString() + ConsoleColors.RESET);
+                    System.out.println(ConsoleColors.BLUE + threadName + book.getList().toString() + ConsoleColors.RESET);
                     Thread.sleep((int) (10 * Math.random()));
                 }
             } catch (InterruptedException e) {
