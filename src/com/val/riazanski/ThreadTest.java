@@ -1,7 +1,5 @@
 package com.val.riazanski;
 
-import java.util.concurrent.Callable;
-
 import static java.lang.Math.random;
 
 public class ThreadTest {
