@@ -19,16 +19,16 @@ public class Book {
         final int shift = 97;
         final int n = listCounter;
         char firstChar;
-        System.out.println("создали массив из строк");
+        //System.out.println("создали массив из строк");
         for (int i = 0; i < n; i++) {
             String str = "";
-            for (int k = 0; k < 20; k++) {
+            for (int k = 0; k < 10; k++) {
                 firstChar = (char) ((int) (shift + valueAlphabet * random()));
                 str = str + firstChar;
             }
             list.add(str);
         }
-        System.out.println(list.toString());
+        //System.out.println(list.toString());
     }
 
     public void metaChange(int fromString, String rePlace) {
